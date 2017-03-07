@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem spashItem = menu.findItem(R.id.actoin_splash);
+        MenuItem spashItem = menu.findItem(R.id.action_splash);
         spashItem.setChecked(preferenceHelper.getBoolean(PreferenceHelper.KEY_SPALSH));
         return true;
     }
@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.actoin_splash){
+        if (id == R.id.action_splash){
+            item.setChecked(!item.isChecked());
             preferenceHelper.putBulean(PreferenceHelper.KEY_SPALSH, item.isChecked());
             return true;
         }
