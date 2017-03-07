@@ -8,11 +8,15 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
+    PreferenceHelper preferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        PreferenceHelper.getInstance().init(getApplicationContext());
+        preferenceHelper = PreferenceHelper.getInstance();
 
         fragmentManager = getFragmentManager();
         runSplash();
