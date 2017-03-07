@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem spashItem = menu.findItem(R.id.actoin_splash);
+        spashItem.setChecked(preferenceHelper.getBoolean(PreferenceHelper.KEY_SPALSH));
         return true;
     }
 
@@ -32,19 +34,20 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings){
+        if (id == R.id.actoin_splash){
+            preferenceHelper.putBulean(PreferenceHelper.KEY_SPALSH, item.isChecked());
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     public void runSplash(){
-        SplashFragment splashFragment = new SplashFragment();
-
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, splashFragment)
-                .addToBackStack(null)
-                .commit();
-
+        if (!preferenceHelper.getBoolean(PreferenceHelper.KEY_SPALSH)) {
+            SplashFragment splashFragment = new SplashFragment();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, splashFragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }

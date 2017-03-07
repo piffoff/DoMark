@@ -3,10 +3,9 @@ package ru.ikota.domark;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.hardware.camera2.params.StreamConfigurationMap;
 
 public class PreferenceHelper {
-    private static final String KEY_SPALSH = "KEY_SPLASH";
+    public static final String KEY_SPALSH = "KEY_SPLASH";
     private static PreferenceHelper instance;
     private Context context;
     private SharedPreferences sharedPreferences;
