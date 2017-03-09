@@ -1,4 +1,4 @@
-package ru.ikota.domark;
+package ru.ikota.domark.Fragments;
 
 
 import android.os.AsyncTask;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.concurrent.TimeUnit;
+
+import ru.ikota.domark.R;
 
 public class SplashFragment extends Fragment {
 
@@ -37,7 +39,9 @@ public class SplashFragment extends Fragment {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            getActivity().getFragmentManager().popBackStack();
+            if (getActivity() != null) {
+                getActivity().getFragmentManager().popBackStack();
+            }
             return null;
         }
     }

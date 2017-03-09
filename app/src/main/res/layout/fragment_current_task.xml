@@ -2,14 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.ikota.domark.Fragments.SplashFragment"
-    android:background="@android:color/white">
+    tools:context="ru.ikota.domark.Fragments.CurrentTaskFragment">
 
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:scaleType="fitXY"
-        android:src="@drawable/little_kitten"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/current_task"
+        android:textSize="56dp"
+        android:gravity="center" />
+
 </FrameLayout>

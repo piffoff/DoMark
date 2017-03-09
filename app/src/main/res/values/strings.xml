@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_settings">Настройка по умолчанию</string>
     <string name="do_not_show_splash">Не показывать заставку</string>
+    <string name="current_task">Текущие задачи</string>
+    <string name="done_task">Выполненные задачи</string>
+
 </resources>
