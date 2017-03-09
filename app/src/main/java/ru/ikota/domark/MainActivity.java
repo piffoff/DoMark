@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getFragmentManager();
         runSplash();
+        setUI();
     }
 
     @Override
@@ -62,26 +63,24 @@ public class MainActivity extends AppCompatActivity {
     public void setUI(){
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         if (toolbar != null) {
             toolbar.setTitleTextColor(getResources().getColor(R.color.white));
             setSupportActionBar(toolbar);
         }
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.current_task));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.done_task));
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         TabAdapter tabAdapter = new TabAdapter(fragmentManager, 2);
 
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(tabAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
+                viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -94,5 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }

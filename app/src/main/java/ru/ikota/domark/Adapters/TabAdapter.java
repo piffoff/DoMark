@@ -14,6 +14,7 @@ public class TabAdapter extends FragmentStatePagerAdapter {
 
     public TabAdapter(FragmentManager fm, int numberOfTabs) {
         super(fm);
+        this.numberOfTabs = numberOfTabs;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class TabAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return numberOfTabs;
     }
 }
 
